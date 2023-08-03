@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer items-center p-4 bg-base-100 text-neutral-content mt-auto px-2 my-2">
+    <footer className="footer-center space-y-1 md:footer items-center p-4 bg-base-100 text-neutral-content mt-auto px-2 my-2">
       <div className="items-center grid-flow-col px-2 space-x-10">
         <a href="/" className="btn btn-ghost normal-case text-lg font-bold md:text-xl lg:text-2xl text-black dark:text-white">
           Typing{" "}
@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="items-center grid-flow-col px-2 space-x-10 text-lg text-black dark:text-white ">
         <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
       </div>
-      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <div className="flex items-center justify-center md:grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         <a href="https://twitter.com/thwani_sithole" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
