@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="footer items-center p-4 bg-base-100 text-neutral-content mt-auto px-2 my-2">
       <div className="items-center grid-flow-col px-2 space-x-10">
-        <a className="btn btn-ghost normal-case text-lg font-bold md:text-xl lg:text-2xl text-black dark:text-white">
+        <a href="/" className="btn btn-ghost normal-case text-lg font-bold md:text-xl lg:text-2xl text-black dark:text-white">
           Typing{" "}
           <span className="text-pink-700 text-xl font-bold md:text-2xl lg:text-3xl">
             Test
