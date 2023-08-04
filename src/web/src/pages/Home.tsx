@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import Layout from "../components/Layout";
 import StatsImage from "../assets/stats.jpg";
@@ -5,6 +6,7 @@ import TipsImage from "../assets/tips.jpg";
 import TestImage from "../assets/take_test.jpg";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <Layout>
       <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-10 py-4 items-center justify-center">
@@ -32,7 +34,7 @@ export default function Home() {
           imageSrc={TipsImage}
           actionButton={{
             text: "Learn More",
-            action: () => console.log("Take Test Now")
+            action: () => navigate("/typing-tips")
           }}
         />
       </div>
