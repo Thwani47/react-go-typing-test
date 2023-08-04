@@ -22,7 +22,10 @@ export default function Card({
         <h2 className="card-title">{title}</h2>
         <p>{content}</p>
         <div className="card-actions">
-          <button onClick={actionButton.action} className="btn btn-primary dark:bg-pink-700 dark:uppercase dark:rounded-full hover:scale-105">
+          <button
+            onClick={actionButton.action}
+            className="btn btn-primary dark:bg-pink-700 dark:uppercase dark:rounded-full hover:scale-105 transition duration-300 ease-in-out"
+          >
             {actionButton.text}
           </button>
         </div>

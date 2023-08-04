@@ -16,7 +16,7 @@ export default function Home() {
           imageSrc={TestImage}
           actionButton={{
             text: "Take Test Now",
-            action: () => console.log("Take Test Now")
+            action: () => navigate('/typing-test')
           }}
         />
         <Card
