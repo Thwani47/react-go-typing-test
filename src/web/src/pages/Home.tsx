@@ -7,7 +7,7 @@ import TestImage from "../assets/take_test.jpg";
 export default function Home() {
   return (
     <Layout>
-      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-4 py-4 items-center justify-center">
+      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-10 py-4 items-center justify-center">
         <Card
           title="Take Test"
           content="Take a test to see how fast you can type"
@@ -19,7 +19,7 @@ export default function Home() {
         />
         <Card
           title="Statistics"
-          content="View how you have performed in the past and how others have performed"
+          content="View your typing speed statistics"
           imageSrc={StatsImage}
           actionButton={{
             text: "View Statistics",
