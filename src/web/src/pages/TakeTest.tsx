@@ -19,20 +19,23 @@ export default function TakeTest() {
   }, []);
   return (
     <Layout>
-      <div>
-        <select className="select w-full max-w-xs">
+      <div className="h-full w-full p-8">
+        <select className="select w-full max-w-xs border-black dark:border-pink-700 dark:rounded-full">
           <option disabled selected>
-            Pick your favorite Simpson
+            Select your language
           </option>
-          <option>Homer</option>
-          <option>Marge</option>
-          <option>Bart</option>
-          <option>Lisa</option>
-          <option>Maggie</option>
+          <option>JavaScript</option>
+          <option>C#</option>
+          <option>Go</option>
+          <option>Java</option>
+          <option>Python</option>
         </select>
-        <pre>
-          <code className={`language-javascript`}>{code}</code>
-        </pre>
+        <div className="w-full h-full flex flex-row space-x-4 ">
+          <pre className="w-[50%] min-h-full rounded-2xl" >
+            <code className="language-javascript">{code}</code>
+          </pre>
+          <textarea className="min-h-full w-[50%] rounded-2xl resize-none"></textarea>
+        </div>
       </div>
     </Layout>
   );
