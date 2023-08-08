@@ -1,7 +1,19 @@
 version: '3.7'
 name: 'react-go-typing-test'
 services:
-  postgres:
+  api:
+    build:
+      context: ../src/server/
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
     image: postgres
     restart: always
     environment:
@@ -10,5 +22,11 @@ services:
       POSTGRES_DB: typing_test_db
     ports:
       - '5433:5432'
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "admin", "-d", "typing_test_db", "-h", "db", "-p", "5432"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
     volumes:
       - ./data/postgres-data:/var/lib/postgresql/data

@@ -90,7 +90,6 @@ func Signin(c *gin.Context) {
 			return
 		}
 
-		c.SetSameSite(http.SameSiteLaxMode)
 		c.JSON(http.StatusOK, gin.H{
 			"token": tokenString,
 		})

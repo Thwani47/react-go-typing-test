@@ -21,9 +21,9 @@ func main() {
 		})
 	})
 
-	router.POST("/signup", controllers.Signup)
-	router.POST("/signin", controllers.Signin)
-	router.GET("/users", middlware.Authorize, controllers.Users)
+	router.POST("/api/v1/signup", controllers.Signup)
+	router.POST("/api/v1/signin", controllers.Signin)
+	router.GET("/api/v1//users", middlware.Authorize, controllers.Users)
 
 	router.Run(":5000")
 }
