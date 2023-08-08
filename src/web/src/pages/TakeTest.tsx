@@ -34,7 +34,7 @@ export default function TakeTest() {
           <option value="python">Python</option>
         </select>
         <div className="w-full h-full flex flex-row space-x-4 ">
-          <pre className="w-[50%] min-h-full rounded-2xl">
+          <pre className="w-[50%] min-h-full rounded-2xl whitespace-pre-wrap">
             <code className="language-javascript">{code}</code>
           </pre>
           <textarea

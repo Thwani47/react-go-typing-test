@@ -13,8 +13,14 @@ export default function NavBar() {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a href="/" className="btn btn-ghost normal-case text-lg font-bold md:text-xl lg:text-2xl text-black dark:text-white">
-          Typing <span className="text-pink-700 text-xl font-bold md:text-2xl lg:text-3xl">Test</span>
+        <a
+          href="/"
+          className="btn btn-ghost normal-case text-lg font-bold md:text-xl lg:text-2xl text-black dark:text-white"
+        >
+          Typing{" "}
+          <span className="text-pink-700 text-xl font-bold md:text-2xl lg:text-3xl">
+            Test
+          </span>
         </a>
       </div>
       <div className="flex-none">
@@ -39,11 +45,14 @@ export default function NavBar() {
             </label>
           </li>
           <li>
-            <div className="avatar placeholder">
+            <button className="btn btn-primary bg-black text-white dark:bg-pink-700 dark:uppercase dark:rounded-full p-4">
+             Login
+            </button>
+            {/* <div className="avatar placeholder">
               <div className="bg-neutral-focus text-neutral-content rounded-full w-8 md:w-10">
                 <span className="text-lg md:text-2xl">TS</span>
               </div>
-            </div>
+            </div> */}
           </li>
         </ul>
       </div>
