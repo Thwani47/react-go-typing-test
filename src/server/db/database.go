@@ -3,10 +3,9 @@ package db
 import (
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/Thwani47/react-go-typing-test/entities"
-	"github.com/joho/godotenv"
+	"github.com/Thwani47/react-go-typing-test/utils"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -16,11 +15,11 @@ var err error
 
 func SetDbClient() {
 	var (
-		host     = envVariable("DB_HOST")
-		port     = envVariable("DB_PORT")
-		user     = envVariable("DB_USER")
-		password = envVariable("DB_PASSWORD")
-		dbname   = envVariable("DB_NAME")
+		host     = utils.GetEnvVariable("DB_HOST")
+		port     = utils.GetEnvVariable("DB_PORT")
+		user     = utils.GetEnvVariable("DB_USER")
+		password = utils.GetEnvVariable("DB_PASSWORD")
+		dbname   = utils.GetEnvVariable("DB_NAME")
 	)
 
 	connString := fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s sslmode=disable",
@@ -40,14 +39,4 @@ func SetDbClient() {
 
 	fmt.Println("Successfully connected to the database")
 
-}
-
-func envVariable(key string) string {
-	err := godotenv.Load(".env")
-
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
-
-	return os.Getenv(key)
 }

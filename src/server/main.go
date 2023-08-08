@@ -5,6 +5,7 @@ import (
 
 	"github.com/Thwani47/react-go-typing-test/controllers"
 	"github.com/Thwani47/react-go-typing-test/db"
+	"github.com/Thwani47/react-go-typing-test/middlware"
 	"github.com/gin-gonic/gin"
 )
 
@@ -21,4 +22,8 @@ func main() {
 	})
 
 	router.POST("/signup", controllers.Signup)
+	router.POST("/signin", controllers.Signin)
+	router.GET("/users", middlware.Authorize, controllers.Users)
+
+	router.Run(":5000")
 }
