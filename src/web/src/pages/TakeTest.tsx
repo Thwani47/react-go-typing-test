@@ -20,21 +20,39 @@ export default function TakeTest() {
   return (
     <Layout>
       <div className="h-full w-full p-8">
-        <select className="select w-full max-w-xs border-black dark:border-pink-700 dark:rounded-full">
+        <select
+          defaultValue="javascript"
+          className="select w-full max-w-xs border-black dark:border-pink-700 dark:rounded-full"
+        >
           <option disabled selected>
             Select your language
           </option>
-          <option>JavaScript</option>
-          <option>C#</option>
-          <option>Go</option>
-          <option>Java</option>
-          <option>Python</option>
+          <option value="javascript">JavaScript</option>
+          <option value="csharp">C#</option>
+          <option value="go">Go</option>
+          <option value="java">Java</option>
+          <option value="python">Python</option>
         </select>
         <div className="w-full h-full flex flex-row space-x-4 ">
-          <pre className="w-[50%] min-h-full rounded-2xl" >
+          <pre className="w-[50%] min-h-full rounded-2xl">
             <code className="language-javascript">{code}</code>
           </pre>
-          <textarea className="min-h-full w-[50%] rounded-2xl resize-none"></textarea>
+          <textarea
+            onKeyDown={(e) => {
+              if (e.key === "Tab") {
+                e.preventDefault();
+                const start = e.currentTarget.selectionStart;
+                const end = e.currentTarget.selectionEnd;
+                const target = e.currentTarget;
+                const value = target.value;
+                target.value =
+                  value.substring(0, start) + "\t" + value.substring(end);
+                e.currentTarget.selectionStart = e.currentTarget.selectionEnd =
+                  start + 1;
+              }
+            }}
+            className="min-h-full w-[50%] rounded-2xl resize-none p-4"
+          ></textarea>
         </div>
       </div>
     </Layout>
