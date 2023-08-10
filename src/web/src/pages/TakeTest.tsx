@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import Layout from "../components/Layout";
+import { useFetchSnippets } from "../hooks/useFetchSnippets";
+import { Snippet } from "../global/types";
 
 const code = `const App = props => {
     return (
@@ -13,6 +15,7 @@ const code = `const App = props => {
 export default function TakeTest() {
   const [typedText, setTypedText] = useState("");
   const userInputRef = useRef<HTMLTextAreaElement>(null);
+  const { data: snippets, isLoading, isError } = useFetchSnippets();
 
   function handleInputChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     const { value } = event.target;
@@ -58,23 +61,39 @@ export default function TakeTest() {
       </pre>
     );
   }
+
+  function getUniqueLanguages(snippets: Snippet[]): string[] {
+    const languages = new Set<string>();
+
+    snippets.forEach((snippet) => {
+      if (!languages.has(snippet.language)) {
+        languages.add(snippet.language);
+      }
+    });
+
+    return Array.from(languages);
+  }
   return (
     <Layout>
       <div className="h-full w-full p-8">
-        <h1>{typedText}</h1>
-        <select
-          defaultValue="javascript"
-          className="select w-full max-w-xs border-black dark:border-pink-700 dark:rounded-full"
-        >
-          <option disabled selected>
-            Select your language
-          </option>
-          <option value="javascript">JavaScript</option>
-          <option value="csharp">C#</option>
-          <option value="go">Go</option>
-          <option value="java">Java</option>
-          <option value="python">Python</option>
-        </select>
+        {isLoading ? (
+          <h1>Fetching code snippets</h1>
+        ) : isError ? (
+          <h1>Error</h1>
+        ) : (
+          <select
+            defaultValue="default"
+            className="select w-full max-w-xs border-black dark:border-pink-700 dark:rounded-full"
+          >
+            <option value="default">Select language</option>
+            {getUniqueLanguages(snippets).map((language) => (
+              <option value={language} className="capitalize">
+                {language}
+              </option>
+            ))}
+          </select>
+        )}
+
         <div className="w-full h-full flex flex-col space-y-4 ">
           {renderCodeWithHighlights()}
 
@@ -92,7 +111,6 @@ export default function TakeTest() {
                 e.currentTarget.selectionStart = e.currentTarget.selectionEnd =
                   start + 1;
               }
-              
             }}
             onChange={handleInputChange}
             ref={userInputRef}

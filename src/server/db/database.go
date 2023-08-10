@@ -32,6 +32,7 @@ func SetDbClient() {
 	DB, err = gorm.Open(postgres.Open(connString), &gorm.Config{})
 
 	DB.AutoMigrate(&entities.User{})
+	DB.AutoMigrate(&entities.Snippet{})
 
 	if err != nil {
 		log.Fatal(err)

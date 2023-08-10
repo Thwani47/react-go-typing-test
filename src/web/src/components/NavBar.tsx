@@ -45,7 +45,7 @@ export default function NavBar() {
             </label>
           </li>
           <li>
-            <button className="btn btn-primary bg-black text-white dark:bg-pink-700 dark:uppercase dark:rounded-full p-4">
+            <button className="btn btn-primary text-white dark:bg-pink-700 dark:uppercase dark:rounded-full p-4 ">
              Login
             </button>
             {/* <div className="avatar placeholder">

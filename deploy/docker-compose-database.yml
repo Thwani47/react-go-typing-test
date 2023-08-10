@@ -1,0 +1,12 @@
+version: '3.7'
+name: 'react-go-typing-test'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: passw0rd
+      POSTGRES_USER: admin
+      POSTGRES_DB: typing_test_db
+    ports:
+      - '5433:5432'
