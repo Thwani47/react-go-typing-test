@@ -12,7 +12,7 @@ export default function NavBar() {
   }, [theme]);
   return (
     <div className="navbar bg-base-100">
-      <div className="flex-1">
+      <div className="flex-1 rounded-full">
         <a
           href="/"
           className="btn btn-ghost normal-case text-lg font-bold md:text-xl lg:text-2xl text-black dark:text-white"
